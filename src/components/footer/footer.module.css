@@ -15,3 +15,14 @@
 .text {
     font-size: small;
 }
+
+@media (max-width: 660px) {
+    .logo {
+        display: none;
+    }
+
+    .text{
+        text-align: center;
+        width: 100%;
+    }
+}
