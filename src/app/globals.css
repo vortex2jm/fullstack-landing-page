@@ -18,6 +18,17 @@ body {
   color: var(--text);
 }
 
+body::-webkit-scrollbar {
+  width: 40px;
+  background-color: var(--bg);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--bgs);
+  border-radius: 20px;
+  border: 16px solid var(--bg);
+}
+
 a {
   text-decoration: none;
   color: inherit;
