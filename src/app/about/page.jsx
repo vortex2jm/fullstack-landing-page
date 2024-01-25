@@ -61,20 +61,20 @@ const AboutPage = () => {
         <div className={styles.boxes}>
           <div className={styles.box}>
             <h1>{expNumber}+</h1>
-            <p className={isBright && styles.bright}>Years of experience</p>
+            <p className={isBright ? styles.bright : undefined}>Years of experience</p>
           </div>
           <div className={styles.box}>
             <h1>{reached}+</h1>
-            <p className={isBright && styles.bright}>Companies reached</p>
+            <p className={isBright ? styles.bright : undefined}>Companies reached</p>
           </div>
           <div className={styles.box}>
             <h1>{plugins}+</h1>
-            <p className={isBright && styles.bright}>Services and plugins</p>
+            <p className={isBright ? styles.bright : undefined}>Services and plugins</p>
           </div>
         </div>
       </div>
       <div className={styles.imgContainer}>
-        <Image src={"/coding.png"} alt="man coding" fill/>
+        <Image src={"/coding.png"} alt="man coding" fill priority/>
       </div>
     </div>
   );
