@@ -17,12 +17,12 @@ const Home = () => {
           <button className={styles.button}>Contact</button>
         </div>
         <div className={styles.brandImg}>
-          <Image src={"/brands.png"} alt="brands" fill/>
+          <Image src={"/brands.png"} alt="brands" fill />
         </div>
       </div>
 
       <div className={styles.imgContainer}>
-        <Image src={"/research.png"} alt="code research" fill/>
+        <Image src={"/research.png"} alt="code research" fill />
       </div>
     </div>
   );

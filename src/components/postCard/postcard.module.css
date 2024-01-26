@@ -1,93 +1,92 @@
 .container {
-    display: flex;
-    flex-direction: column;    
-    padding: 20px;
-    margin: 50px;
-    gap: 10px;
-    width: 38%;
-    /* box-shadow: 2px 2px 10px black; */
-    background-color: var(--bg);
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 50px;
+  gap: 10px;
+  width: 38%;
+  /* box-shadow: 2px 2px 10px black; */
+  background-color: var(--bg);
+  border-radius: 5px;
 }
 
 .imgContainer {
-    position: relative;
-    width: 100%;
-    height: 400px;
+  position: relative;
+  width: 100%;
+  height: 400px;
 }
 
 .img {
-    object-fit: cover;
-    box-shadow: 2px 2px 7px black;
+  object-fit: cover;
+  box-shadow: 2px 2px 7px black;
 }
 
-.top{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 5px;
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5px;
 }
 
-.date{
-    font-size: 12px;
-    transform: rotate(270deg);
-    margin: auto;
+.date {
+  font-size: 12px;
+  transform: rotate(270deg);
+  margin: auto;
 }
 
 .bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .bottom h2 {
-    color: var(--bgs);
+  color: var(--bgs);
 }
 
 .bottom p {
-    color: var(--bgt);
+  color: var(--bgt);
 }
 
 .link {
-    text-decoration: underline;
-    font-size: small;
-    color: var(--text);
-    text-shadow: 0px 0px 5px var(--textSoft);
+  text-decoration: underline;
+  font-size: small;
+  color: var(--text);
+  text-shadow: 0px 0px 5px var(--textSoft);
 }
 
 @media (max-width: 1200px) {
-    .container{
-        width: 70%;
-    }
+  .container {
+    width: 70%;
+  }
 }
 
 @media (max-width: 700px) {
-    .container{
-        width: 90%;
-    }
+  .container {
+    width: 90%;
+  }
 }
 
 @media (max-width: 500px) {
-    .container {
-        width: 60%;
-    }
-    .imgContainer{
-        height: 300px;
-    }
+  .container {
+    width: 60%;
+  }
+  .imgContainer {
+    height: 300px;
+  }
 }
 
 @media (max-width: 430px) {
-    .imgContainer{
-        height: 250px;
-    }
+  .imgContainer {
+    height: 250px;
+  }
 }
 
-
 @media (max-width: 420px) {
-    .imgContainer{
-        height: 200px;
-    }
-    .bottom p {
-        font-size: small;
-    }
+  .imgContainer {
+    height: 200px;
+  }
+  .bottom p {
+    font-size: small;
+  }
 }

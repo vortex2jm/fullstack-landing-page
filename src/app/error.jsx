@@ -1,10 +1,6 @@
-"use client"
+"use client";
 const ErrorWarning = () => {
-    return (
-        <div>
-            Error
-        </div>
-    )
-}
+  return <div>Error</div>;
+};
 
-export default ErrorWarning
+export default ErrorWarning;

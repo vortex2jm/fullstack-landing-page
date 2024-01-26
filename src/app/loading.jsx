@@ -1,9 +1,5 @@
 const LoadingBar = () => {
-    return (
-        <div>
-            Loading'
-        </div>
-    )
-}
+  return <div>Loading'</div>;
+};
 
-export default LoadingBar
+export default LoadingBar;

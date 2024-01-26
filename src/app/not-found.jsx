@@ -1,13 +1,13 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const NotFound = () => {
-    return (
-        <div>
-            <h2>Not Found</h2>
-            Sorry, the page you are looking for does not exists.
-            <Link href={"/"}>Return home</Link>
-        </div>
-    )
-}
+  return (
+    <div>
+      <h2>Not Found</h2>
+      Sorry, the page you are looking for does not exists.
+      <Link href={"/"}>Return home</Link>
+    </div>
+  );
+};
 
-export default NotFound
+export default NotFound;
