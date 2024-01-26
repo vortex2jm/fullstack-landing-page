@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./links.module.css";
 import Navlink from "./navlink/Navlink";
+import Image from "next/image"
 
 const links = [
 	{
@@ -50,7 +51,7 @@ const Links = () => {
     	  )}
     	</div>
 
-			<button className={styles.mbt} onClick={handleButtonState}>Menu</button>
+			<button className={styles.mbt} onClick={handleButtonState}><Image src={"/menu.svg"} width={50} height={50}/></button>
 			
 			{open && 
 				<div className={styles.mobileLinks}>

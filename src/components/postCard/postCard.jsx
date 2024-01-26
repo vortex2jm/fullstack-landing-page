@@ -8,7 +8,7 @@ const PostCard = () => {
         <div className={styles.container}>
                 <div className={styles.top}>
                     <div className={styles.imgContainer}>
-                        <Image src={"/robot.jpg"} alt="card image" fill className={styles.img}></Image>
+                        <Image src={"/blog.jpg"} alt="card image" fill className={styles.img}></Image>
                     </div>
                 </div>
                 <div className={styles.bottom}>
