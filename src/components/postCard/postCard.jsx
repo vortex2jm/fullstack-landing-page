@@ -2,7 +2,8 @@ import styles from "./postcard.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const PostCard = () => {
+const PostCard = async ({post}) => {
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -16,13 +17,11 @@ const PostCard = () => {
         </div>
       </div>
       <div className={styles.bottom}>
-        <h2>Title</h2>
+        <h2>{post.title}</h2>
         <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-          porro nisi deserunt provident libero cumque quia neque quas
-          voluptatibus.
+          {post.body}
         </p>
-        <Link href={"/blog"} className={styles.link}>
+        <Link href={`/blog/${post.id}`} className={styles.link}>
           READ MORE
         </Link>
       </div>

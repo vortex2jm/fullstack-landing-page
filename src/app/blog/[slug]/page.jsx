@@ -1,7 +1,24 @@
+import PostUser from "@/components/postUser/postUser";
 import styles from "./singlepost.module.css";
 import Image from "next/image";
+import { Suspense } from "react";
 
-const SinglePostPage = () => {
+async function getData(slug) {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${slug}`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+const SinglePostPage = async ({ params }) => {
+  const { slug } = params;
+  const post = await getData(slug);
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -10,31 +27,11 @@ const SinglePostPage = () => {
         </div>
       </div>
       <div className={styles.right}>
-        <h2>Title</h2>
-        <div className={styles.info}>
-          <div className={styles.avatarContainer}>
-            <Image
-              src={"/avatar.jpg"}
-              alt="avatar"
-              className={styles.avatar}
-              fill
-            ></Image>
-          </div>
-          <div className={styles.author}>
-            <p>Author</p>
-            <span>Terry jheferson</span>
-          </div>
-          <div className={styles.published}>
-            <p>Published</p>
-            <span>01 Nov 2023</span>
-          </div>
-        </div>
-        <p className={styles.desc}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro beatae
-          minima ad dolor eaque nesciunt laudantium! Officiis autem fuga
-          necessitatibus maxime eaque facilis, explicabo fugit consequatur
-          exercitationem? Quos, quia fugit.
-        </p>
+        <h2>{post.title}</h2>
+        <Suspense fallback={<div>Loading...</div>}>
+          <PostUser userId={post.userId} />
+        </Suspense>
+        <p className={styles.desc}>{post.body}</p>
       </div>
     </div>
   );
