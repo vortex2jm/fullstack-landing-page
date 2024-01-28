@@ -20,12 +20,14 @@ body {
 body::-webkit-scrollbar {
   width: 40px;
   background-color: var(--bg);
+  height: 50vh;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: var(--bgs);
   border-radius: 20px;
   border: 16px solid var(--bg);
+  height: 50vh;
 }
 
 a {
