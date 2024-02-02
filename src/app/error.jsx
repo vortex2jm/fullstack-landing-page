@@ -1,6 +1,6 @@
 "use client";
 const ErrorWarning = () => {
-  return <div>Error</div>;
+  return <div>Something went wrong</div>;
 };
 
 export default ErrorWarning;

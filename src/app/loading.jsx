@@ -1,5 +1,5 @@
 const LoadingBar = () => {
-  return <div>Loading'</div>;
+  return <div>Loading page</div>;
 };
 
 export default LoadingBar;
