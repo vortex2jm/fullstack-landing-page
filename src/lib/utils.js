@@ -21,3 +21,10 @@ export const axiosClient = axios.create({
     "apikey": process.env.API_KEY
   }
 })
+
+export const formResp =  {
+  PassDontMatch: 0,
+  UserAlreadyExists: 1,
+  Successful: 2,
+  Error: 3,
+}
