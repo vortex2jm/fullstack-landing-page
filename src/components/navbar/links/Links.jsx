@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./links.module.css";
 import Navlink from "./navlink/Navlink";
 import Image from "next/image";
+import { handleLogout } from "@/lib/action";
 
 const links = [
   {
@@ -24,11 +25,8 @@ const links = [
   },
 ];
 
-const Links = () => {
+const Links = ({ session }) => {
   const [open, setOpen] = useState(false);
-
-  const session = false;
-  const isAdmin = true;
 
   const handleButtonState = () => {
     setOpen((prev) => !prev);
@@ -40,18 +38,20 @@ const Links = () => {
         {links.map((link) => (
           <Navlink item={link} key={link.title} />
         ))}
-        {session ? (
+        {session?.user ? (
           <>
-            {isAdmin && <Navlink item={{ title: "admin", path: "/admin" }} />}
-            <button className={styles.logout}>Logout</button>
+            {session.user?.isAdmin && <Navlink item={{ title: "admin", path: "/admin" }} />}
+            <form action={handleLogout}>
+              <button className={styles.logout}>Logout</button>
+            </form>
           </>
         ) : (
-          <Navlink item={{ title: "login", path: "/login" }} />
+          <Navlink item={{ title: "Login", path: "/login" }} />
         )}
       </div>
 
       <button className={styles.mbt} onClick={handleButtonState}>
-        <Image src={"/menu.svg"} width={50} height={50} />
+        <Image src={"/menu.svg"} alt="menu" width={50} height={50} />
       </button>
 
       {open && (
