@@ -1,13 +1,13 @@
 import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css";
+import { axiosClient as axios } from "@/lib/utils";
 
 async function getData() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', { cache: "no-store"})
- 
-  if (!res.ok) {
+  try {
+    const res = await fetch('https://jsonplaceholder.typicode.com/posts', { cache: "no-store"})
+  } catch (error) {
     throw new Error('Failed to fetch data')
   }
-  
   return res.json()
 }
 
