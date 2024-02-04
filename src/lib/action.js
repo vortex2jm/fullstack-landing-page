@@ -2,18 +2,20 @@
 import { signIn, signOut } from "@/lib/auth"
 import { User } from "./models"
 import { db_connect } from "./utils"
+import bcrypt from "bcrypt"
+import { formResp } from "./utils"
 
-// login
+// login===================================//
 export const handleGithubLogin = async() => {
   await signIn("github")
 }
 
-//logout
+//logout================================//
 export const handleLogout = async () => {
   await signOut()
 }
 
-// create user in DB
+// create user in DB=========================//
 export const createUser = async (profile) => {
   try {
     await db_connect()
@@ -32,29 +34,35 @@ export const createUser = async (profile) => {
   }
 }
 
+// Sing up=============================================//
 export const  handleRegisterForm = async (formData) => {
   const { username, email, password, passwordRepeat } = Object.fromEntries(formData)
 
   if(password !== passwordRepeat){
-    return 0;
+    return formResp.PassDontMatch;
   }
+  
+  const hashedPassword = await bcrypt.hash(password, 10)
+  
+  if(!hashedPassword)
+    return formResp.Error
 
   try {
     await db_connect()
     const user = await User.findOne({ username })
     if(user){
-      return 1
+      return formResp.UserAlreadyExists
     } 
     const usr = new User({
       username: username,
       email: email,
+      password: hashedPassword,
       img: ""
     })
     await usr.save()
-    return 3
+    return formResp.Successful
 
   } catch (error) {
-    console.log(error)
-    return 4
+    return formResp.Error
   }
 }

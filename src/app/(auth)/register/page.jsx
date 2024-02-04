@@ -7,12 +7,14 @@ import { formResp } from "@/lib/utils"
 
 const RegisterPage = () => {
   const route = useRouter()
+  
+  // debug variable
+  let x= 0
 
-  const handleFormAction = (formData) => {
-    console.log(formData)
-    switch (handleRegisterForm(formData)) {
+  const handleFormAction = async (formData) => {
+    switch (x = await handleRegisterForm(formData)) {
       case formResp.Successful:
-        toast.success("You've been registered", {
+        toast.success("You've been registered!", {
           position: "bottom-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -22,9 +24,50 @@ const RegisterPage = () => {
           progress: undefined,
           theme: "dark",
         })
-        route.forward("/login")
+        route.push("/login")
+        break;
+
+      case formResp.PassDontMatch:
+        toast.warn("Passwords don't match!", {
+          position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
+        break;
+      
+      case formResp.UserAlreadyExists:
+        toast.error("This user already exists!", {
+          position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
+        break;
+
+      case formResp.Error:
+        toast.error("Something went wrong. Try again later!", {
+          position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
         break;
       default:
+        //debug 
+        // console.log(x)
         break;
     }
   }
@@ -35,8 +78,8 @@ const RegisterPage = () => {
         <h2 className={styles.title}>Register your account</h2>
         <input type="text" name="username" placeholder="username"></input>
         <input type="text" name="email" placeholder="email"></input>
-        <input type="text" name="password" placeholder="password"></input>
-        <input type="text" name="repeat-password" placeholder="repeat password"></input>
+        <input type="password" name="password" placeholder="password"></input>
+        <input type="password" name="passwordRepeat" placeholder="repeat password"></input>
         <button>Confirm</button>
       </form>
     </div>
