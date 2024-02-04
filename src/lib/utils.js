@@ -27,4 +27,5 @@ export const formResp =  {
   UserAlreadyExists: 1,
   Successful: 2,
   Error: 3,
+  InvalidCred: 4
 }
