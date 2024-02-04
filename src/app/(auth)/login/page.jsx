@@ -44,6 +44,7 @@ const LoginPage = () => {
       default:
         console.log(x)
         route.push("/")
+        route.refresh()
         break;
     }
   }
