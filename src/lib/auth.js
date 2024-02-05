@@ -15,8 +15,11 @@ export const {
       clientSecret: process.env.GITHUB_SECRET,
     }),
     CredentialsProvider({
-      async authorize(user) {
-        return user
+      async authorize(credentials) {
+        return { 
+          name: credentials.name,
+          isAdmin: credentials.isAdmin 
+        }
       }
     })
   ],
@@ -31,6 +34,18 @@ export const {
       }
       return true;
     },
+    async jwt({ token, user }){
+      return {
+        ...token,
+        isAdmin: user?.isAdmin
+      }
+    }
   },
+  pages: {
+    signIn: "/login",
+    signOut: "/login",
+    error: "/",
+    verifyRequest: "/",
+    newUser: "/register"
+  }
 });
-

@@ -79,12 +79,12 @@ export const handleLogin = async (formData) => {
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) return formResp.InvalidCred;
 
-    await signIn("credentials", user);
+    await signIn("credentials", { name: user.username, isAdmin: user.isAdmin });
     return formResp.Successful;
   } catch (error) {}
 };
 
 // Getting session=====================//
 export const getSession = async () => {
-  return await auth()
-}
+  return await auth();
+};
