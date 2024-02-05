@@ -4,6 +4,7 @@ const ContactPage = () => {
   return (
     <div className={styles.container}>
       <form className={styles.form}>
+        <h2>Send me a message</h2>
         <input type="text" placeholder="Name"></input>
         <input type="text" placeholder="Email Address"></input>
         <input type="text" placeholder="Phone Number (optional)"></input>
