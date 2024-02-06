@@ -27,6 +27,7 @@
 
 .posts h2 {
   color: var(--bgt);
+  padding: 10px;
 }
 
 .postBox {
@@ -36,6 +37,8 @@
   gap: 10px;
   overflow-y: scroll;
   height: 380px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .postBox::-webkit-scrollbar {
@@ -64,6 +67,8 @@
 
 .newPost h2 {
   color: var(--bgt);
+  padding: 10px;
+  padding-left: 17px;
 }
 
 .bottom {
@@ -79,6 +84,7 @@
 
 .bottom h2 {
   color: var(--bgt);
+  padding: 10px;
 }
 
 .usersBox {
@@ -89,6 +95,8 @@
   justify-content: space-between;
   max-height: 300px;
   overflow-y: scroll;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .usersBox::-webkit-scrollbar {

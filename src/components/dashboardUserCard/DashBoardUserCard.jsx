@@ -9,10 +9,10 @@ const DashBoardUserCard = ({ props }) => {
         <Image src={"/avatar.jpg"} alt="avatar" className={styles.avatar} fill/>
       </div>
       <div className={styles.info}>
-        <span>John Doe</span>
+        <span>{props.name}</span>
         <p>johndoe@gmail.com</p>
       </div>
-      <FaTrashAlt color="black" className={styles.trash}/>
+      <FaTrashAlt color="palevioletred" className={styles.trash}/>
     </div>
   )
 }

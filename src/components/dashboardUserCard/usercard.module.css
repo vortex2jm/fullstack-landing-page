@@ -4,10 +4,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border: 1px solid var(--bgs);
+  /* border: 1px solid var(--bgs); */
   border-radius: 5px;
   width: 32%;
   min-height: 100px;
+
+  background-color: var(--bgDark);
+}
+
+.container:hover {
+  box-shadow: 0px 0px 10px var(--bgt);
 }
 
 .imgContainer {
@@ -30,8 +36,16 @@
 
 .info span{
   font-weight: bold;
+  color: var(--text);
 }
 
 .info p {
   font-size: small;
+  text-decoration: underline;
+  color: var(--bgt);
+}
+
+.trash:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }

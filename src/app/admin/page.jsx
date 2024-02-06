@@ -8,19 +8,19 @@ import axios from "axios"
 const getPosts = async () => {
 	const posts = [
 		{
-			title: "jota"
+			title: "Tamirão"
 		},
 		{
-			title: "jota"
+			title: "Tamirão"
 		},
 		{
-			title: "jota"
+			title: "Tamirão"
 		},
 		{
-			title: "jota"
+			title: "Tamirão"
 		},
 		{
-			title: "jota"
+			title: "Tamirão"
 		}
 	]
 	return posts 
