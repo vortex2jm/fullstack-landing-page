@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+}
+
+.top {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  padding: 10px;
+  overflow: auto;
+  box-shadow: 0px 0px 7px black;
+  border-radius: 5px;
+  gap: 10px;
+}
+
+.posts h2 {
+  color: var(--bgt);
+}
+
+.postBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  overflow-y: scroll;
+  height: 380px;
+}
+
+.postBox::-webkit-scrollbar {
+  width: 40px;
+  background-color: var(--bg);
+  /* height: 50%; */
+}
+
+.postBox::-webkit-scrollbar-thumb {
+  background-color: var(--bgs);
+  border-radius: 20px;
+  border: 16px solid var(--bg);
+  height: 50%;
+}
+
+.newPost {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  padding: 10px;
+  box-shadow: 0px 0px 5px black;
+  /* border: 1px solid var(--bgs); */
+  border-radius: 5px;
+  gap: 10px;
+}
+
+.newPost h2 {
+  color: var(--bgt);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  height: auto;
+  box-shadow: 0px 0px 5px black;
+  border-radius: 5px;
+}
+
+.bottom h2 {
+  color: var(--bgt);
+}
+
+.usersBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.usersBox::-webkit-scrollbar {
+  width: 40px;
+  background-color: var(--bg);
+  /* height: 50%; */
+}
+
+.usersBox::-webkit-scrollbar-thumb {
+  background-color: var(--bgs);
+  border-radius: 20px;
+  border: 16px solid var(--bg);
+  height: 50%;
+}
