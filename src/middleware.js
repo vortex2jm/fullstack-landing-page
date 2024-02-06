@@ -8,7 +8,7 @@ export async function middleware(req) {
   const token = await getToken({ req, secret })
   const { pathname } = req.nextUrl
 
-  if(pathname.startsWith("/api")){
+  if(pathname.startsWith("/api/blog")){
     const apikey = req.headers.get('apikey')
     if(apikey !== process.env.API_KEY){
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 })
