@@ -10,6 +10,10 @@
   width: 300px;
 }
 
+.image {
+  border-radius: 5px;
+}
+
 .right {
   display: flex;
   flex-direction: column;

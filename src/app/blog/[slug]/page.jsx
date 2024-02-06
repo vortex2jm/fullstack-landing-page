@@ -23,7 +23,7 @@ const SinglePostPage = async ({ params }) => {
     <div className={styles.container}>
       <div className={styles.left}>
         <div className={styles.imgContainer}>
-          <Image src={"/blog.jpg"} alt="post image" fill></Image>
+          <Image src={"/blog.jpg"} alt="post image" className={styles.image} fill></Image>
         </div>
       </div>
       <div className={styles.right}>
