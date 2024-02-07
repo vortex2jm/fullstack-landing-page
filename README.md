@@ -37,8 +37,11 @@ This is a full stack application using NextJs Route Handlers, Server Actions, Mo
 ## Register page
 ![](docs/readme_assets/register.png)
 
+## Admin page
+![](docs/readme_assets/admin.png)
+
 ## Blog page
-:construction:
+![](docs/readme_assets/blog.png)
 
 ## Post page
-:construction:
+![](docs/readme_assets/post.png)
