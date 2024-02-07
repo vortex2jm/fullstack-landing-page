@@ -92,9 +92,9 @@ export const getSession = async () => {
 export const isAdminUser = async (session) => {
   try {
     await db_connect()
-    let user = await User.findOne({ username: session.user.name })
+    let user = await User.findOne({ username: session?.user?.name })
     if(!user){
-      user = await User.findOne({ email: session.user.email })
+      user = await User.findOne({ email: session?.user?.email })
     }
     if(user) return user?.isAdmin
     return false

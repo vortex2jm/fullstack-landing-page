@@ -35,8 +35,12 @@ const Links = ({ session }) => {
 
   useEffect(() => {
     async function getUserRole() {
-      const isAdmin = await isAdminUser(session)
-      setRole(isAdmin)
+      try {
+        const isAdmin = await isAdminUser(session)
+        setRole(isAdmin)
+      } catch (error) {
+        throw new Error(error)
+      }
     }
     getUserRole()
   }, [])
