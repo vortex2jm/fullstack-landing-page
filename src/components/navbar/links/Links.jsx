@@ -1,10 +1,10 @@
 "use client";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./links.module.css";
 import Navlink from "./navlink/Navlink";
 import Image from "next/image";
 import { handleLogout } from "@/lib/action";
+import { isAdminUser } from "@/lib/action";
 
 const links = [
   {
@@ -27,10 +27,19 @@ const links = [
 
 const Links = ({ session }) => {
   const [open, setOpen] = useState(false);
+  const [role, setRole] = useState(false)
 
   const handleButtonState = () => {
     setOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    async function getUserRole() {
+      const isAdmin = await isAdminUser(session)
+      setRole(isAdmin)
+    }
+    getUserRole()
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -40,7 +49,7 @@ const Links = ({ session }) => {
         ))}
         {session?.user ? (
           <>
-            {session.user?.isAdmin && <Navlink item={{ title: "admin", path: "/admin" }} />}
+            {role && <Navlink item={{ title: "Admin", path: "/admin" }} />}
             <form action={handleLogout}>
               <button className={styles.logout}>Logout</button>
             </form>

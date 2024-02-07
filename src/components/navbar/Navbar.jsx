@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const Navbar = async () => {
   const session = await auth()
+
   return (
     <div className={styles.container}>
       <Link href={"/"} className={styles.logo}>

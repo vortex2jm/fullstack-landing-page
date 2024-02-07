@@ -16,7 +16,7 @@ export const handleLogout = async () => {
   await signOut();
 };
 
-// create user in DB=========================//
+// create user in DB with github login=========================//
 export const createUser = async (profile) => {
   try {
     await db_connect();
@@ -35,7 +35,7 @@ export const createUser = async (profile) => {
   }
 };
 
-// Sing up=============================================//
+// Sing up with credentials==========================//
 export const handleRegisterForm = async (formData) => {
   const { username, email, password, passwordRepeat } =
     Object.fromEntries(formData);
@@ -45,7 +45,6 @@ export const handleRegisterForm = async (formData) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
-
   if (!hashedPassword) return formResp.Error;
 
   try {
@@ -88,3 +87,18 @@ export const handleLogin = async (formData) => {
 export const getSession = async () => {
   return await auth();
 };
+
+// Verifying if user is admin==================//
+export const isAdminUser = async (session) => {
+  try {
+    await db_connect()
+    let user = await User.findOne({ username: session.user.name })
+    if(!user){
+      user = await User.findOne({ email: session.user.email })
+    }
+    if(user) return user?.isAdmin
+    return false
+  } catch (error) {
+    throw new Error(error)
+  }
+}
